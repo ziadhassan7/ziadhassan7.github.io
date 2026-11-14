@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziad Hassan, Flutter mobile developer</title>
+<meta name="description" content="Flutter mobile developer in Cairo. Ride-hailing, food delivery and payment apps with 100k+ downloads across four markets.">
+<meta property="og:title" content="Ziad Hassan, Flutter mobile developer">
+<meta property="og:description" content="Ride-hailing, food delivery and payment apps with 100k+ downloads across four markets.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ziadhassan7.github.io/">
+<meta name="theme-color" content="#F3F6FB">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314213D'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23F2A541'%3EZ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mist: #F3F6FB;
+    --paper: #FFFFFF;
+    --ink: #14213D;
+    --ink-soft: #4A5672;
+    --blue: #1E63E9;
+    --sky: #D6E6FF;
+    --amber: #F2A541;
+    --line: #D9E0EC;
+    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --code: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--mist);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--blue); text-underline-offset: 3px; }
+  a:focus-visible, .button:focus-visible {
+    outline: 3px solid var(--amber);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.1; }
+  p { margin: 0; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 28px 22px 64px;
+  }
+
+  /* Identity rail */
+  .rail-name { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+  .rail-role { color: var(--ink-soft); margin-top: 4px; }
+  .rail-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; }
+  .rail-links a { font-weight: 500; }
+  .rail-nav { display: none; }
+
+  /* Hero */
+  .hero { padding: 44px 0 40px; }
+  .hero h1 {
+    font-size: clamp(2.3rem, 9.5vw, 4.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    max-width: 14ch;
+  }
+  .hero-lede {
+    margin-top: 22px;
+    font-size: 1.12rem;
+    max-width: 56ch;
+    color: var(--ink-soft);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .button {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--ink);
+  }
+  .button-solid { background: var(--ink); color: var(--mist); }
+  .button-plain { color: var(--ink); }
+  .button:hover { border-color: var(--blue); }
+  .button-solid:hover { background: var(--blue); }
+
+  /* Sections */
+  .block { padding: 40px 0; border-top: 1px solid var(--line); }
+  .block > h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  /* Timeline: the two phases really are a sequence */
+  .timeline { border-left: 2px solid var(--ink); margin-left: 5px; }
+  .phase { position: relative; padding: 0 0 34px 24px; }
+  .phase:last-child { padding-bottom: 0; }
+  .phase::before {
+    content: "";
+    position: absolute;
+    left: -8px; top: 7px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 2px solid var(--ink);
+  }
+  .phase-when { color: var(--ink-soft); font-size: 0.95rem; }
+  .phase h3 { font-size: 1.3rem; font-weight: 700; margin: 2px 0 12px; }
+  .points li { position: relative; padding-left: 18px; margin-bottom: 9px; max-width: 64ch; }
+  .points li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.66em;
+    width: 7px; height: 2px;
+    background: var(--blue);
+  }
+  .store-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-weight: 500; }
+
+  /* Own products */
+  .feature {
+    background: var(--ink);
+    color: var(--mist);
+    border-radius: 22px;
+    padding: 28px 24px;
+  }
+  .feature h3 { font-size: 1.6rem; font-weight: 700; }
+  .feature-kind { color: var(--sky); margin-top: 4px; }
+  .feature p.feature-text { margin-top: 14px; max-width: 58ch; color: #DCE4F2; }
+  .feature a { color: var(--amber); font-weight: 600; }
+  .streak { display: flex; gap: 6px; margin: 22px 0 6px; }
+  .streak span {
+    flex: 1; max-width: 26px; aspect-ratio: 1;
+    border-radius: 7px;
+    background: var(--amber);
+  }
+  .streak span.miss { background: transparent; border: 2px solid #3A4868; }
+  .streak-note { font-size: 0.92rem; color: var(--sky); }
+  .feature-link { margin-top: 18px; }
+
+  .pair { display: grid; gap: 16px; margin-top: 16px; }
+  .side {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 20px;
+  }
+  .side h3 { font-size: 1.2rem; font-weight: 700; }
+  .side-kind { color: var(--ink-soft); font-size: 0.95rem; margin-top: 3px; }
+  .side p.side-text { margin-top: 10px; }
+  .side-link { margin-top: 12px; font-weight: 500; }
+
+  /* Open source */
+  .contrib { max-width: 64ch; }
+  .packages { margin-top: 20px; border-top: 1px solid var(--line); }
+  .packages li { border-bottom: 1px solid var(--line); }
+  .packages a {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+    padding: 13px 2px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .packages a:hover code { color: var(--blue); }
+  .packages code { font-family: var(--code); font-size: 0.95rem; font-weight: 600; }
+  .packages small { color: var(--ink-soft); font-size: 0.9rem; text-align: right; }
+
+  /* Skills */
+  .skills { display: grid; gap: 18px; }
+  .skills dt { font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+  .skills dd { margin: 3px 0 0; color: var(--ink-soft); max-width: 62ch; }
+
+  /* Background */
+  .facts li { margin-bottom: 10px; max-width: 62ch; }
+  .facts strong { font-weight: 600; }
+  .facts span { color: var(--ink-soft); }
+
+  /* Contact */
+  .contact h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); max-width: 18ch; }
+  .contact p { margin-top: 14px; color: var(--ink-soft); max-width: 52ch; }
+  .contact .hero-actions { margin-top: 24px; }
+
+  footer { color: var(--ink-soft); font-size: 0.9rem; padding-top: 28px; border-top: 1px solid var(--line); }
+
+  @media (min-width: 640px) {
+    .pair { grid-template-columns: 1fr 1fr; }
+    .feature { padding: 36px 34px; }
+  }
+
+  @media (min-width: 960px) {
+    .page {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 72px;
+      padding: 56px 32px 80px;
+    }
+    .rail { position: sticky; top: 56px; align-self: start; }
+    .rail-links { flex-direction: column; gap: 8px; }
+    .rail-nav {
+      display: flex; flex-direction: column; gap: 8px;
+      margin-top: 30px; padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .rail-nav a { color: var(--ink-soft); text-decoration: none; }
+    .rail-nav a:hover { color: var(--ink); text-decoration: underline; }
+    .hero { padding-top: 0; }
+    .skills { grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="rail">
+    <p class="rail-name">Ziad Hassan</p>
+    <p class="rail-role">Flutter mobile developer<br>Cairo, Egypt. Open to remote work.</p>
+    <div class="rail-links">
+      <a href="mailto:ziadh.business@gmail.com">Email</a>
+      <a href="https://github.com/ziadhassan7">GitHub</a>
+      <a href="https://linkedin.com/in/ziadhassan7">LinkedIn</a>
+      <a href="https://pub.dev/packages/ngenius_flutter_sdk">pub.dev</a>
+    </div>
+    <nav class="rail-nav" aria-label="Sections">
+      <a href="#work">Work at YAY Global</a>
+      <a href="#products">My own apps</a>
+      <a href="#open-source">Open source</a>
+      <a href="#skills">Skills</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <h1>I build the apps people ride, eat and pay with.</h1>
+      <p class="hero-lede">Two years shipping Flutter apps for Android and iOS at YAY Global: ride-hailing and food delivery with more than 100,000 downloads across the UAE, Egypt, Algeria and Syria. I take products from first sketch to store release.</p>
+      <div class="hero-actions">
+        <a class="button button-solid" href="mailto:ziadh.business@gmail.com">Email me</a>
+        <a class="button button-plain" href="#work">See my work</a>
+      </div>
+    </section>
+
+    <section class="block" id="work">
+      <h2>Work at YAY Global</h2>
+      <div class="timeline">
+        <article class="phase">
+          <p class="phase-when">March 2025 to September 2026</p>
+          <h3>YAY Portal and YAY Taxi</h3>
+          <ul class="points">
+            <li>Folded the whole YAY Food app into YAY Portal on my own by turning it into a reusable Flutter package, then reworked navigation, dependency injection, notifications and app lifecycle to fit.</li>
+            <li>Implemented NGenius payments through the native Android and iOS SDKs over platform channels, and added Paymob for the Egyptian market.</li>
+            <li>Designed one payment layer that sits over Stripe, NGenius and Paymob, so swapping a gateway no longer touches the screens.</li>
+            <li>Maintained and released updates for apps with 100k+ downloads in four regional markets.</li>
+          </ul>
+          <div class="store-links">
+            <a href="https://play.google.com/store/apps/details?id=app.yay.portal&hl=en">YAY Portal on Google Play</a>
+            <a href="https://apps.apple.com/us/app/yay-portal-rides-food-earn/id6478861690">YAY Portal on the App Store</a>
+          </div>
+        </article>
+        <article class="phase">
+          <p class="phase-when">June 2024 to March 2025</p>
+          <h3>YAY Food</h3>
+          <ul class="points">
+            <li>Built the customer app from planning to launch: live order tracking, in-app chat, push notifications, in-app payments, and six languages.</li>
+            <li>Worked with the design team on user research and product planning, shaping features before any code was written.</li>
+            <li>Maintained the Rider and Restaurant apps and kept live order and driver tracking in sync across all three.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="products">
+      <h2>My own apps</h2>
+
+      <article class="feature">
+        <h3>FlipStreak</h3>
+        <p class="feature-kind">Book manager and reading habit tracker, on Google Play</p>
+        <p class="feature-text">I took FlipStreak from idea to launch alone: wireframes, interface design in Figma, usability testing, development and release. It has passed 500 downloads, and its streak system raised user retention by 27%.</p>
+        <div class="streak" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span class="miss"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p class="streak-note">A reading streak, the idea the app is built around.</p>
+        <p class="feature-link"><a href="https://www.behance.net/gallery/185419469/Flip-Streak-Case-Study">Read the FlipStreak case study</a></p>
+      </article>
+
+      <div class="pair">
+        <article class="side">
+          <h3>Pluperfect</h3>
+          <p class="side-kind">English speaking practice</p>
+          <p class="side-text">Four ways to practise: quote pronunciation, listening, grammar evaluation and free talking. AI simulates conversation and scores fluency and grammar. I designed the whole interface.</p>
+          <p class="side-link"><a href="https://github.com/ziadhassan7/Pluperfect">Pluperfect on GitHub</a></p>
+        </article>
+        <article class="side">
+          <h3>SayIt</h3>
+          <p class="side-kind">Word capture and pronunciation, native Android</p>
+          <p class="side-text">Point the camera at text and Google's ML Kit pulls the words out. Tap a word and the Google speech model says it aloud.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="open-source">
+      <h2>Open source</h2>
+      <p class="contrib">For <a href="https://pub.dev/packages/ngenius_flutter_sdk">ngenius_flutter_sdk</a> I implemented saved-card payments in Kotlin and Swift, added support for older Flutter versions and improved the documentation, all contributed upstream to the maintainer. I also publish four packages of my own.</p>
+      <ul class="packages">
+        <li><a href="https://pub.dev/packages/modern_dialog"><code>modern_dialog</code><small>Dialogs</small></a></li>
+        <li><a href="https://pub.dev/packages/z_grouped_list"><code>z_grouped_list</code><small>Grouped lists</small></a></li>
+        <li><a href="https://pub.dev/packages/responsive_wrap_container"><code>responsive_wrap_container</code><small>Responsive layout</small></a></li>
+        <li><a href="https://pub.dev/packages/adaptive_appbar"><code>adaptive_appbar</code><small>Adaptive app bar</small></a></li>
+      </ul>
+    </section>
+
+    <section class="block" id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div>
+          <dt>Core</dt>
+          <dd>Flutter, Dart, Android, iOS, REST APIs, BLoC and Cubit, Riverpod, GetX, Clean Architecture, MVVM, SOLID, dependency injection with GetIt, Git</dd>
+        </div>
+        <div>
+          <dt>Mobile</dt>
+          <dd>Firebase push notifications, Google Maps API, WebSockets, platform channels in Kotlin and Swift, SQLite, Hive, localization, responsive and adaptive layouts, custom animation</dd>
+        </div>
+        <div>
+          <dt>Payments</dt>
+          <dd>Stripe, Paymob, Fawry, N-Genius. Card tokenization, auth and capture flows, digital wallets</dd>
+        </div>
+        <div>
+          <dt>Release</dt>
+          <dd>GitLab CI/CD, Google Play Console, App Store Connect, TestFlight, Shorebird code push, fvm</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>Figma, Jira, Agile and Scrum, AI-assisted development with Claude Code and OpenAI Codex</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="block" id="background">
+      <h2>Background</h2>
+      <ul class="facts">
+        <li><strong>Bachelor of Accounting and Finance</strong>, Ain Shams University. <span>2019 to 2023, GPA 3.6 of 4.0, with honors</span></li>
+        <li><strong>.NET Web Developer Diploma</strong>, DEPI. <span>October 2024</span></li>
+        <li><strong>Google UX Design Professional Certificate</strong>, Google. <span>November 2023</span></li>
+        <li><strong>Flutter Mobile Development Diploma</strong>, ITSharks. <span>June 2022</span></li>
+      </ul>
+    </section>
+
+    <section class="block contact" id="contact">
+      <h2>Looking for a Flutter developer?</h2>
+      <p>I'm available now, in Cairo or remote. Email is the fastest way to reach me.</p>
+      <div class="hero-actions">
+        <a class="button button-solid" href="mailto:ziadh.business@gmail.com">Email me</a>
+        <a class="button button-plain" href="https://linkedin.com/in/ziadhassan7">Message me on LinkedIn</a>
+      </div>
+    </section>
+
+    <footer>Ziad Hassan, Cairo, 2026</footer>
+  </main>
+
+</div>
+</body>
+</html>

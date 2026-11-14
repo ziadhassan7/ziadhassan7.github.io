@@ -9,21 +9,24 @@
 <meta property="og:description" content="Ride-hailing, food delivery and payment apps with 100k+ downloads across four markets.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ziadhassan7.github.io/">
-<meta name="theme-color" content="#F3F6FB">
+<meta name="theme-color" content="#0D1630">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314213D'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23F2A541'%3EZ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --mist: #F3F6FB;
-    --paper: #FFFFFF;
-    --ink: #14213D;
-    --ink-soft: #4A5672;
-    --blue: #1E63E9;
-    --sky: #D6E6FF;
+    color-scheme: dark;
+    --mist: #0D1630;
+    --paper: #16213F;
+    --raised: #1C2A52;
+    --ink: #EDF2FC;
+    --ink-soft: #A6B3CF;
+    --blue: #86B4FF;
+    --sky: #C5DBFF;
     --amber: #F2A541;
-    --line: #D9E0EC;
+    --line: #27355C;
+    --rule: #40517F;
     --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
     --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     --code: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -88,7 +91,7 @@
   .button-solid { background: var(--ink); color: var(--mist); }
   .button-plain { color: var(--ink); }
   .button:hover { border-color: var(--blue); }
-  .button-solid:hover { background: var(--blue); }
+  .button-solid:hover { background: var(--blue); border-color: var(--blue); }
 
   /* Sections */
   .block { padding: 40px 0; border-top: 1px solid var(--line); }
@@ -100,7 +103,7 @@
   }
 
   /* Timeline: the two phases really are a sequence */
-  .timeline { border-left: 2px solid var(--ink); margin-left: 5px; }
+  .timeline { border-left: 2px solid var(--rule); margin-left: 5px; }
   .phase { position: relative; padding: 0 0 34px 24px; }
   .phase:last-child { padding-bottom: 0; }
   .phase::before {
@@ -110,7 +113,7 @@
     width: 14px; height: 14px;
     border-radius: 50%;
     background: var(--amber);
-    border: 2px solid var(--ink);
+    border: 3px solid var(--mist);
   }
   .phase-when { color: var(--ink-soft); font-size: 0.95rem; }
   .phase h3 { font-size: 1.3rem; font-weight: 700; margin: 2px 0 12px; }
@@ -126,14 +129,15 @@
 
   /* Own products */
   .feature {
-    background: var(--ink);
-    color: var(--mist);
+    background: var(--raised);
+    border: 1px solid var(--rule);
+    color: var(--ink);
     border-radius: 22px;
     padding: 28px 24px;
   }
   .feature h3 { font-size: 1.6rem; font-weight: 700; }
   .feature-kind { color: var(--sky); margin-top: 4px; }
-  .feature p.feature-text { margin-top: 14px; max-width: 58ch; color: #DCE4F2; }
+  .feature p.feature-text { margin-top: 14px; max-width: 58ch; color: #D3DDF0; }
   .feature a { color: var(--amber); font-weight: 600; }
   .streak { display: flex; gap: 6px; margin: 22px 0 6px; }
   .streak span {
@@ -141,7 +145,7 @@
     border-radius: 7px;
     background: var(--amber);
   }
-  .streak span.miss { background: transparent; border: 2px solid #3A4868; }
+  .streak span.miss { background: transparent; border: 2px solid var(--rule); }
   .streak-note { font-size: 0.92rem; color: var(--sky); }
   .feature-link { margin-top: 18px; }
 

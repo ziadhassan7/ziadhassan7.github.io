@@ -145,14 +145,24 @@ code { font-family: var(--code); font-size: 0.92em; }
 }
 
 /* Timeline: the two phases really are a sequence */
-.timeline { border-left: 2px solid var(--rule); margin-left: 5px; }
+.timeline { position: relative; margin-left: 5px; padding-left: 2px; }
+/* the line starts at the first dot's centre instead of above it */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 12px; bottom: 0;
+  width: 2px;
+  background: var(--rule);
+}
 .phase { position: relative; padding: 0 0 34px 24px; }
 .phase:last-child { padding-bottom: 0; }
 .phase::before {
   content: "";
   position: absolute;
-  left: -8px; top: 7px;
-  width: 14px; height: 14px;
+  /* centre the dot on the 2px line: the line runs from -2px to 0 */
+  left: -11px; top: 2px;
+  box-sizing: border-box;
+  width: 20px; height: 20px;
   border-radius: 50%;
   background: var(--amber);
   border: 3px solid var(--mist);

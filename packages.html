@@ -31,7 +31,7 @@
 <div class="page">
 
   <aside class="rail">
-    <a class="rail-name" href="./">Ziad Hassan</a>
+    <a class="rail-id" href="./"><img class="rail-photo" src="ziad-hassan.jpg" alt="" width="56" height="56"><span class="rail-name">Ziad Hassan</span></a>
     <p class="rail-role">Flutter mobile developer<br>Cairo, Egypt. Open to remote work.</p>
     <div class="rail-links">
       <a href="mailto:ziadh.business@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Email</span></a>
@@ -65,19 +65,11 @@
 
         <h4 class="sub">What I contributed</h4>
         <ul class="points">
-          <li>Saved-card payments from end to end: the <code>launchSavedCardPayment</code> call in Dart, with the native side written in Kotlin for Android and Swift for iOS.</li>
-          <li>A saved-card model, <code>NGeniusSavedCardModel</code>, that carries the card token. The CVV can be asked for again with <code>recaptureCsc</code> or passed in directly.</li>
+          <li>Saved-card payments from end to end: implemented the <code>launchSavedCardPayment</code> call on the native side, in Kotlin for Android and Swift for iOS.</li>
           <li>Support for older Flutter versions, so existing apps can adopt the plugin without upgrading first.</li>
           <li>Android build fixes, including JitPack repository placement and missing SDK dependencies.</li>
           <li>Better package documentation.</li>
         </ul>
-
-        <h4 class="sub">How a saved-card payment runs</h4>
-        <ol class="steps">
-          <li>Your backend creates the order and hands the order JSON to the app.</li>
-          <li>The app calls <code>launchSavedCardPayment</code> with that order and the saved card's token.</li>
-          <li>The native N-Genius SDK takes over, asks for the CVV if needed, and returns a status code and message.</li>
-        </ol>
 
         <dl class="meta">
           <div><dt>Role</dt><dd>Contributor</dd></div>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flutter packages, Ziad Hassan</title>
+<meta name="description" content="Open source Flutter work by Ziad Hassan: saved-card payments for ngenius_flutter_sdk, plus his own packages on pub.dev.">
+<meta property="og:title" content="Flutter packages, Ziad Hassan">
+<meta property="og:description" content="Saved-card payments for ngenius_flutter_sdk, plus my own packages on pub.dev.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ziadhassan7.github.io/packages.html">
+<meta name="theme-color" content="#0D1017">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg class="sprite" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/><path d="m13.5 5-3 14"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"/><path d="m4 7 8 4 8-4"/><path d="M12 11v10"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></symbol>
+</svg>
+<div class="page">
+
+  <aside class="rail">
+    <a class="rail-name" href="./">Ziad Hassan</a>
+    <p class="rail-role">Flutter mobile developer<br>Cairo, Egypt. Open to remote work.</p>
+    <div class="rail-links">
+      <a href="mailto:ziadh.business@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Email</span></a>
+      <a href="https://github.com/ziadhassan7"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span>GitHub</span></a>
+      <a href="https://linkedin.com/in/ziadhassan7"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg><span>LinkedIn</span></a>
+      <a href="packages.html" aria-current="page"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg><span>pub.dev</span></a>
+    </div>
+    <nav class="rail-nav" aria-label="Sections">
+      <a href="./">Portfolio home</a>
+      <a href="#ngenius">ngenius_flutter_sdk</a>
+      <a href="#own">My own packages</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero hero-compact">
+      <p class="back-link"><a class="icon-link" href="./"><svg class="icon icon-small" aria-hidden="true"><use href="#i-left"/></svg><span>Back to portfolio</span></a></p>
+      <h1>Open source Flutter packages</h1>
+      <p class="hero-lede">One payment plugin I contributed to upstream, and three packages of my own. All of them are published on pub.dev.</p>
+    </section>
+
+    <section class="block" id="ngenius">
+      <h2>Upstream contribution</h2>
+
+      <article class="feature">
+        <h3 class="pkg-title">ngenius_flutter_sdk</h3>
+        <p class="feature-kind">Flutter plugin for N-Genius card payments on Android and iOS</p>
+        <p class="feature-text">The plugin wraps the native N-Genius payment SDKs so a Flutter app can take card payments. I worked with N-Genius payments at YAY Global, and for this plugin I built saved-card payments on both platforms and contributed the work upstream. The feature ships in the published package, and the README credits me as a contributor.</p>
+
+        <h4 class="sub">What I contributed</h4>
+        <ul class="points">
+          <li>Saved-card payments from end to end: the <code>launchSavedCardPayment</code> call in Dart, with the native side written in Kotlin for Android and Swift for iOS.</li>
+          <li>A saved-card model, <code>NGeniusSavedCardModel</code>, that carries the card token. The CVV can be asked for again with <code>recaptureCsc</code> or passed in directly.</li>
+          <li>Support for older Flutter versions, so existing apps can adopt the plugin without upgrading first.</li>
+          <li>Android build fixes, including JitPack repository placement and missing SDK dependencies.</li>
+          <li>Better package documentation.</li>
+        </ul>
+
+        <h4 class="sub">How a saved-card payment runs</h4>
+        <ol class="steps">
+          <li>Your backend creates the order and hands the order JSON to the app.</li>
+          <li>The app calls <code>launchSavedCardPayment</code> with that order and the saved card's token.</li>
+          <li>The native N-Genius SDK takes over, asks for the CVV if needed, and returns a status code and message.</li>
+        </ol>
+
+        <dl class="meta">
+          <div><dt>Role</dt><dd>Contributor</dd></div>
+          <div><dt>Platforms</dt><dd>Android, iOS</dd></div>
+          <div><dt>Languages</dt><dd>Dart, Kotlin, Swift</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+        </dl>
+
+        <div class="store-links">
+          <a class="icon-link" href="https://pub.dev/packages/ngenius_flutter_sdk"><span>ngenius_flutter_sdk on pub.dev</span><svg class="icon icon-small" aria-hidden="true"><use href="#i-out"/></svg></a>
+          <a class="icon-link" href="https://github.com/mhammadraza137/ngenius_flutter_sdk"><span>Source on GitHub</span><svg class="icon icon-small" aria-hidden="true"><use href="#i-out"/></svg></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="block" id="own">
+      <h2>My own packages</h2>
+      <div class="stack">
+
+        <article class="side">
+          <h3 class="pkg">modern_dialog</h3>
+          <p class="side-kind">Dialogs</p>
+          <p class="side-text">A modern dialog with a simple API that adapts to Android and iOS.</p>
+          <ul class="points">
+            <li>Five ready layouts: standard, info, trailing action, vertical and custom.</li>
+            <li>Full control over colors and styling.</li>
+          </ul>
+          <p class="side-platforms">Android, iOS, web, Windows, macOS, Linux</p>
+          <p class="side-link"><a class="icon-link" href="https://pub.dev/packages/modern_dialog"><span>modern_dialog on pub.dev</span><svg class="icon icon-small" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+        </article>
+
+        <article class="side">
+          <h3 class="pkg">z_grouped_list</h3>
+          <p class="side-kind">Grouped lists and grids</p>
+          <p class="side-text">A list that splits your data into groups, each under its own header.</p>
+          <ul class="points">
+            <li>Shows the same data as a list or as a grid.</li>
+            <li>Sorts groups in ascending or descending order.</li>
+            <li>Lets every group have a custom header.</li>
+          </ul>
+          <p class="side-platforms">Android, iOS, web, Windows, macOS, Linux</p>
+          <p class="side-link"><a class="icon-link" href="https://pub.dev/packages/z_grouped_list"><span>z_grouped_list on pub.dev</span><svg class="icon icon-small" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+        </article>
+
+        <article class="side">
+          <h3 class="pkg">responsive_wrap_container</h3>
+          <p class="side-kind">Responsive layout</p>
+          <p class="side-text">A container that behaves normally on small screens and wraps its content in a box on large screens and the web.</p>
+          <ul class="points">
+            <li>A <code>maxWidth</code> breakpoint, 600 by default.</li>
+            <li>Height can fill the screen, wrap the content or stay fixed.</li>
+            <li>Box and background colors are configurable.</li>
+          </ul>
+          <p class="side-platforms">Android, iOS, web, Windows, macOS, Linux</p>
+          <p class="side-link"><a class="icon-link" href="https://pub.dev/packages/responsive_wrap_container"><span>responsive_wrap_container on pub.dev</span><svg class="icon icon-small" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="block contact" id="contact">
+      <h2>Looking for a Flutter developer?</h2>
+      <p>I'm available now, in Cairo or remote. Email is the fastest way to reach me.</p>
+      <div class="hero-actions">
+        <a class="button button-solid" href="mailto:ziadh.business@gmail.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Email me</span></a>
+        <a class="button button-plain" href="./"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg><span>Back to portfolio</span></a>
+      </div>
+    </section>
+
+    <footer>Ziad Hassan, Cairo, 2026</footer>
+  </main>
+
+</div>
+</body>
+</html>
